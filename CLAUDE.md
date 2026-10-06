@@ -38,6 +38,14 @@ core (src/main/java/qa/core)        → config, browser lifecycle, API base, rep
 - After any change: `mvn -q test-compile` must pass; run the affected suite when a browser is available.
 - Run one test: `mvn verify -Dtest=<Class>#<method>` (add `-Dtrace=on` when debugging).
 
+## Git workflow
+- Never commit to `main`. One branch per change: `feature/<topic>`, `fix/<topic>`, `ci/<topic>`, `docs/<topic>`;
+  for a Qase case use the id, e.g. `feature/PJF-25-newsletter-subscription`.
+- Commit messages follow Conventional Commits: `feat: …`, `fix(ui): …`, `test: …`, `ci: …`, `docs: …`, `refactor: …`.
+  One logical change per commit; mention the Qase case id when there is one.
+- Before committing: `mvn -q test-compile` and `python scripts/validate_ai_config.py` pass.
+- Pushing, opening and merging pull requests is done by the user. `main` is protected: merge only through a PR with green CI.
+
 ## Test cases and Qase
 - Qase is the source of truth for case content. Lifecycle: AI drafts (Status **Draft**, tag `ai_generated`) →
   the user reviews and sets **Actual** in Qase → only Actual cases are automated. AI never sets Actual.
