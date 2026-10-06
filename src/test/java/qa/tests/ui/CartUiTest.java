@@ -13,10 +13,10 @@ import io.qameta.allure.SeverityLevel;
 import org.testng.annotations.Test;
 
 import qa.app.api.models.Product;
-import qa.app.ui.pages.CartPage;
+import qa.app.base.BaseUiTest;
+import qa.app.base.Groups;
 import qa.app.ui.pages.CartPage.CartItem;
-import qa.tests.base.BaseUiTest;
-import qa.tests.base.Groups;
+import qa.app.ui.pages.CartPage;
 
 @Epic("Storefront UI")
 @Feature("Cart")

@@ -1,0 +1,30 @@
+{
+  "key": "ui-valid-login",
+  "qaseId": null,
+  "title": "Registered user can log in and sees their name in the header",
+  "suite": "UI / Authentication",
+  "layer": "e2e",
+  "priority": "high",
+  "severity": "blocker",
+  "tags": [
+    "smoke",
+    "regression",
+    "ui"
+  ],
+  "objective": "A registered customer can sign in and is recognised by the storefront.",
+  "preconditions": "An account created via API (deleted after the test)",
+  "steps": [
+    {
+      "action": "Open the login page and sign in with valid credentials",
+      "expectedResult": "The logout link is shown"
+    },
+    {
+      "action": "Check the header",
+      "expectedResult": "'Logged in as <name>' shows the customer's name"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.AuthUiTest#validLoginShowsUserName"
+  }
+}

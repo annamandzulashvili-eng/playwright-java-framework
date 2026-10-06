@@ -1,0 +1,29 @@
+{
+  "key": "ui-product-details-match-api",
+  "qaseId": null,
+  "title": "Product details page shows the same name and price as the catalog API",
+  "suite": "UI / Catalog",
+  "layer": "e2e",
+  "priority": "medium",
+  "severity": "major",
+  "tags": [
+    "regression",
+    "ui"
+  ],
+  "objective": "Product information is consistent between the catalog service and the details page.",
+  "preconditions": "First product of the catalog API",
+  "steps": [
+    {
+      "action": "Open the product details page by id",
+      "expectedResult": "Page is shown"
+    },
+    {
+      "action": "Compare name and price with the API",
+      "expectedResult": "Name and price equal the API values"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.CatalogUiTest#productDetailsMatchCatalogApi"
+  }
+}

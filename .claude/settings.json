@@ -1,0 +1,45 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn -q test-compile)",
+      "Bash(mvn test-compile *)",
+      "Bash(mvn verify *)",
+      "Bash(mvn -q verify *)",
+      "Bash(python scripts/validate_ai_config.py)",
+      "Bash(python3 scripts/validate_ai_config.py)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "mcp__qase__qase_get",
+      "mcp__qase__qase_project_context",
+      "mcp__qase__qql_search",
+      "mcp__qase__qql_help",
+      "mcp__playwright__*"
+    ],
+    "ask": [
+      "mcp__playwright__browser_run_code_unsafe",
+      "mcp__qase__qase_case_upsert",
+      "mcp__qase__qase_case_bulk_create",
+      "mcp__qase__qase_suite_upsert",
+      "mcp__qase__qase_triage_defect",
+      "Bash(git commit *)"
+    ],
+    "deny": [
+      "Read(./.env)",
+      "Bash(git push *)",
+      "mcp__qase__qase_api",
+      "mcp__qase__qase_attachment_delete",
+      "mcp__qase__qase_case_delete",
+      "mcp__qase__qase_defect_delete",
+      "mcp__qase__qase_discover_tools",
+      "mcp__qase__qase_environment_delete",
+      "mcp__qase__qase_milestone_delete",
+      "mcp__qase__qase_plan_delete",
+      "mcp__qase__qase_result_delete",
+      "mcp__qase__qase_review_delete",
+      "mcp__qase__qase_run_delete",
+      "mcp__qase__qase_shared_step_delete",
+      "mcp__qase__qase_suite_delete"
+    ]
+  }
+}

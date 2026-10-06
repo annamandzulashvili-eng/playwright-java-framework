@@ -1,0 +1,34 @@
+{
+  "key": "ui-cart-prices-and-totals",
+  "qaseId": null,
+  "title": "Products added from the catalog appear in the cart with correct prices and totals",
+  "suite": "UI / Cart",
+  "layer": "e2e",
+  "priority": "high",
+  "severity": "blocker",
+  "tags": [
+    "smoke",
+    "regression",
+    "ui"
+  ],
+  "objective": "Cart reflects chosen products with correct prices, quantities and totals.",
+  "preconditions": "First two products of the catalog API",
+  "steps": [
+    {
+      "action": "Add two products to the cart from the catalog",
+      "expectedResult": "Each addition shows the 'Added!' dialog"
+    },
+    {
+      "action": "Open the cart",
+      "expectedResult": "Both products are listed in the order added"
+    },
+    {
+      "action": "Check every row",
+      "expectedResult": "Price equals the API price, quantity is 1, total equals the price"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.CartUiTest#addedProductsAppearWithCorrectTotals"
+  }
+}

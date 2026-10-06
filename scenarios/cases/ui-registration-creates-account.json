@@ -1,0 +1,33 @@
+{
+  "key": "ui-registration-creates-account",
+  "qaseId": null,
+  "title": "New user registers through the UI and the account exists in the backend",
+  "suite": "UI / Authentication",
+  "layer": "e2e",
+  "priority": "high",
+  "severity": "critical",
+  "tags": [
+    "regression",
+    "ui"
+  ],
+  "objective": "Sign-up through the storefront creates a real, usable account.",
+  "preconditions": "A unique generated customer that does not exist yet",
+  "steps": [
+    {
+      "action": "Start sign-up with name and e-mail, fill account information and submit",
+      "expectedResult": "'Account Created!' is shown"
+    },
+    {
+      "action": "Continue to the storefront",
+      "expectedResult": "Header shows 'Logged in as <name>'"
+    },
+    {
+      "action": "Verify the new credentials via API",
+      "expectedResult": "responseCode 200 from verifyLogin"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.AuthUiTest#registrationThroughUiCreatesAccount"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "key": "api-product-list-post-not-supported",
+  "qaseId": null,
+  "title": "POST to the product list is rejected as an unsupported method",
+  "suite": "API / Catalog",
+  "layer": "api",
+  "priority": "low",
+  "severity": "minor",
+  "tags": [
+    "regression",
+    "api"
+  ],
+  "objective": "Unsupported methods are rejected with a clear error instead of being processed.",
+  "preconditions": "None",
+  "steps": [
+    {
+      "action": "Send POST to the product list endpoint",
+      "data": "POST /api/productsList",
+      "expectedResult": "responseCode 405 and message 'This request method is not supported.'"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.api.ProductsApiTest#postToProductListIsNotSupported"
+  }
+}

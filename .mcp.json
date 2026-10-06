@@ -1,0 +1,26 @@
+{
+  "mcpServers": {
+    "qase": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@qase/mcp-server@2.7.5"
+      ],
+      "env": {
+        "QASE_API_TOKEN": "${QASE_API_TOKEN}"
+      }
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@0.0.83",
+        "--browser",
+        "chromium",
+        "--headless",
+        "--isolated",
+        "--caps=testing"
+      ]
+    }
+  }
+}

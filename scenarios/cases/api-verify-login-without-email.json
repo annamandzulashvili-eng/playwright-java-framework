@@ -1,0 +1,26 @@
+{
+  "key": "api-verify-login-without-email",
+  "qaseId": null,
+  "title": "Login verification without e-mail is a bad request",
+  "suite": "API / User accounts",
+  "layer": "api",
+  "priority": "medium",
+  "severity": "normal",
+  "tags": [
+    "regression",
+    "api"
+  ],
+  "objective": "The login verification endpoint validates its required parameters.",
+  "preconditions": "None",
+  "steps": [
+    {
+      "action": "Verify login sending only a password",
+      "data": "POST /api/verifyLogin",
+      "expectedResult": "responseCode 400, message 'Bad request, email or password parameter is missing in POST request.'"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.api.UserAccountApiTest#loginVerificationWithoutEmailIsBadRequest"
+  }
+}

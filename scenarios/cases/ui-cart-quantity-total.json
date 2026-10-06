@@ -1,0 +1,30 @@
+{
+  "key": "ui-cart-quantity-total",
+  "qaseId": null,
+  "title": "Quantity chosen on the details page is reflected in the cart total",
+  "suite": "UI / Cart",
+  "layer": "e2e",
+  "priority": "medium",
+  "severity": "major",
+  "tags": [
+    "regression",
+    "ui"
+  ],
+  "objective": "Line total is quantity multiplied by unit price.",
+  "preconditions": "First product of the catalog API",
+  "steps": [
+    {
+      "action": "Add the product with quantity 3 from its details page",
+      "data": "quantity = 3",
+      "expectedResult": "'Added!' dialog is shown"
+    },
+    {
+      "action": "Open the cart",
+      "expectedResult": "Exactly one row: quantity 3, total = 3 x unit price"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.CartUiTest#quantityFromDetailsIsReflectedInTotal"
+  }
+}

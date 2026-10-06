@@ -1,0 +1,31 @@
+{
+  "key": "ui-search-matches-api",
+  "qaseId": null,
+  "title": "UI search shows exactly the products the search API returns",
+  "suite": "UI / Catalog",
+  "layer": "e2e",
+  "priority": "high",
+  "severity": "critical",
+  "tags": [
+    "smoke",
+    "regression",
+    "ui"
+  ],
+  "objective": "Storefront search displays the same results as the search service.",
+  "preconditions": "Expected results fetched from the search API",
+  "steps": [
+    {
+      "action": "Search the catalog in the UI",
+      "data": "term = top",
+      "expectedResult": "Grid title is 'Searched Products'"
+    },
+    {
+      "action": "Compare displayed products with the API result",
+      "expectedResult": "Same number of cards and the same product names in any order"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.CatalogUiTest#uiSearchMatchesSearchApi"
+  }
+}
