@@ -7,6 +7,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qase.commons.annotation.QaseId;
 
 import org.testng.annotations.Test;
 
@@ -24,6 +25,7 @@ public class UserAccountApiTest extends BaseTest {
     @Test(groups = {Groups.API, Groups.SMOKE, Groups.REGRESSION},
             description = "Account lifecycle: create, verify login, read details, delete")
     @Severity(SeverityLevel.CRITICAL)
+    @QaseId(1)
     public void accountLifecycle() {
         UserAccount user = UserFactory.randomUser();
         deleteAfterTest(user); // safety net if an assertion below fails mid-way
@@ -59,6 +61,7 @@ public class UserAccountApiTest extends BaseTest {
 
     @Test(groups = {Groups.API, Groups.REGRESSION},
             description = "Creating an account with an existing e-mail is rejected")
+    @QaseId(2)
     public void duplicateEmailIsRejected() {
         UserAccount existing = createUserViaApi();
 
@@ -70,6 +73,7 @@ public class UserAccountApiTest extends BaseTest {
 
     @Test(groups = {Groups.API, Groups.REGRESSION},
             description = "Login verification with a wrong password returns 'not found'")
+    @QaseId(8)
     public void wrongPasswordIsRejected() {
         UserAccount user = createUserViaApi();
 
@@ -80,6 +84,7 @@ public class UserAccountApiTest extends BaseTest {
 
     @Test(groups = {Groups.API, Groups.REGRESSION},
             description = "Login verification without e-mail is a bad request")
+    @QaseId(7)
     public void loginVerificationWithoutEmailIsBadRequest() {
         ApiMessage body = usersApi.verifyLoginWithoutEmail("any-password").body();
 

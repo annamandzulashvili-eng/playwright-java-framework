@@ -1,6 +1,6 @@
 {
   "key": "api-verify-login-without-email",
-  "qaseId": null,
+  "qaseId": 7,
   "title": "Login verification without e-mail is a bad request",
   "suite": "API / User accounts",
   "layer": "api",

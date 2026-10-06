@@ -1,6 +1,6 @@
 {
   "key": "ui-logout",
-  "qaseId": null,
+  "qaseId": 12,
   "title": "Logout ends the session and returns to the login page",
   "suite": "UI / Authentication",
   "layer": "e2e",

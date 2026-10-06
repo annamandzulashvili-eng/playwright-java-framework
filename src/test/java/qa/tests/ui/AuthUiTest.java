@@ -9,6 +9,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qase.commons.annotation.QaseId;
 
 import org.testng.annotations.Test;
 
@@ -27,6 +28,7 @@ public class AuthUiTest extends BaseUiTest {
     @Test(groups = {Groups.UI, Groups.SMOKE, Groups.REGRESSION},
             description = "Registered user can log in and sees their name in the header")
     @Severity(SeverityLevel.BLOCKER)
+    @QaseId(17)
     public void validLoginShowsUserName() {
         UserAccount user = createUserViaApi();
 
@@ -37,6 +39,7 @@ public class AuthUiTest extends BaseUiTest {
 
     @Test(groups = {Groups.UI, Groups.REGRESSION},
             description = "Wrong password shows an error and the user stays logged out")
+    @QaseId(18)
     public void wrongPasswordShowsError() {
         UserAccount user = createUserViaApi();
 
@@ -49,6 +52,7 @@ public class AuthUiTest extends BaseUiTest {
     @Test(groups = {Groups.UI, Groups.REGRESSION},
             description = "New user registers through the UI and the account exists in the backend")
     @Severity(SeverityLevel.CRITICAL)
+    @QaseId(14)
     public void registrationThroughUiCreatesAccount() {
         UserAccount user = UserFactory.randomUser();
         deleteAfterTest(user);
@@ -64,6 +68,7 @@ public class AuthUiTest extends BaseUiTest {
 
     @Test(groups = {Groups.UI, Groups.REGRESSION},
             description = "Sign-up with an already registered e-mail is rejected")
+    @QaseId(16)
     public void signupWithExistingEmailShowsError() {
         UserAccount existing = createUserViaApi();
 
@@ -74,6 +79,7 @@ public class AuthUiTest extends BaseUiTest {
 
     @Test(groups = {Groups.UI, Groups.REGRESSION},
             description = "Logout ends the session and returns to the login page")
+    @QaseId(12)
     public void logoutReturnsToLoginPage() {
         UserAccount user = createUserViaApi();
         ui().auth().loginAs(user);

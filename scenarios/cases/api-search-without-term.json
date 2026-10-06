@@ -1,6 +1,6 @@
 {
   "key": "api-search-without-term",
-  "qaseId": null,
+  "qaseId": 6,
   "title": "Search without the search_product parameter is a bad request",
   "suite": "API / Catalog",
   "layer": "api",

@@ -9,6 +9,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qase.commons.annotation.QaseId;
 
 import org.testng.annotations.Test;
 
@@ -25,6 +26,7 @@ public class CartUiTest extends BaseUiTest {
     @Test(groups = {Groups.UI, Groups.SMOKE, Groups.REGRESSION},
             description = "Products added from the catalog appear in the cart with correct prices and totals")
     @Severity(SeverityLevel.BLOCKER)
+    @QaseId(9)
     public void addedProductsAppearWithCorrectTotals() {
         List<Product> chosen = productsApi.getAllProducts().body().products().subList(0, 2);
         List<String> names = chosen.stream().map(Product::name).toList();
@@ -43,6 +45,7 @@ public class CartUiTest extends BaseUiTest {
 
     @Test(groups = {Groups.UI, Groups.REGRESSION},
             description = "Quantity chosen on the details page is reflected in the cart total")
+    @QaseId(10)
     public void quantityFromDetailsIsReflectedInTotal() {
         Product product = productsApi.getAllProducts().body().products().getFirst();
         int quantity = 3;
@@ -59,6 +62,7 @@ public class CartUiTest extends BaseUiTest {
 
     @Test(groups = {Groups.UI, Groups.REGRESSION},
             description = "Removing the only product leaves the cart empty")
+    @QaseId(11)
     public void removingLastProductEmptiesCart() {
         String name = productsApi.getAllProducts().body().products().getFirst().name();
         ui().cart().addFromCatalog(List.of(name));

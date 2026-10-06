@@ -1,6 +1,6 @@
 {
   "key": "ui-registration-creates-account",
-  "qaseId": null,
+  "qaseId": 14,
   "title": "New user registers through the UI and the account exists in the backend",
   "suite": "UI / Authentication",
   "layer": "e2e",

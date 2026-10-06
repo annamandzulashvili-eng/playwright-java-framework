@@ -1,6 +1,6 @@
 {
   "key": "api-product-list-contract",
-  "qaseId": null,
+  "qaseId": 3,
   "title": "Product list returns a non-empty catalog that matches the contract",
   "suite": "API / Catalog",
   "layer": "api",

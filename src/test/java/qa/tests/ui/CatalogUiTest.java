@@ -10,6 +10,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qase.commons.annotation.QaseId;
 
 import org.testng.annotations.Test;
 
@@ -26,6 +27,7 @@ public class CatalogUiTest extends BaseUiTest {
     @Test(groups = {Groups.UI, Groups.SMOKE, Groups.REGRESSION},
             description = "UI search shows exactly the products the search API returns")
     @Severity(SeverityLevel.CRITICAL)
+    @QaseId(15)
     public void uiSearchMatchesSearchApi() {
         String term = "top";
         List<String> expected = productsApi.search(term).body().products().stream().map(Product::name).toList();
@@ -39,6 +41,7 @@ public class CatalogUiTest extends BaseUiTest {
 
     @Test(groups = {Groups.UI, Groups.REGRESSION},
             description = "Product details page shows the same name and price as the catalog API")
+    @QaseId(13)
     public void productDetailsMatchCatalogApi() {
         Product product = productsApi.getAllProducts().body().products().getFirst();
 

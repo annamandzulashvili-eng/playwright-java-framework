@@ -1,6 +1,6 @@
 {
   "key": "ui-search-matches-api",
-  "qaseId": null,
+  "qaseId": 15,
   "title": "UI search shows exactly the products the search API returns",
   "suite": "UI / Catalog",
   "layer": "e2e",
