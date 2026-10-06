@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Assertion failures (possible product defects)",
+    "matchedStatuses": ["failed"],
+    "messageRegex": "(?s).*(expected|Expected|Expecting|Assertion|Locator expected).*"
+  },
+  {
+    "name": "Timeouts (slow app, wrong locator or missing wait)",
+    "matchedStatuses": ["broken", "failed"],
+    "messageRegex": "(?s).*(Timeout|timed out|TimeoutError).*"
+  },
+  {
+    "name": "Configuration problems",
+    "matchedStatuses": ["broken"],
+    "messageRegex": "(?s).*Invalid test configuration.*"
+  },
+  {
+    "name": "Infrastructure / network",
+    "matchedStatuses": ["broken"],
+    "messageRegex": "(?s).*(ConnectException|UnknownHost|SocketTimeout|net::ERR_|Target page, context or browser has been closed).*"
+  },
+  {
+    "name": "Other broken tests",
+    "matchedStatuses": ["broken"]
+  }
+]

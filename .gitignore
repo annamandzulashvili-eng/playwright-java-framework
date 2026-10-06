@@ -1,0 +1,14 @@
+target/
+allure-results/
+allure-report/
+.allure/
+
+# IDE
+.idea/
+*.iml
+.vscode/
+.DS_Store
+
+# Local overrides and secrets — never commit
+.env
+*.local.properties
