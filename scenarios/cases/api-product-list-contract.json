@@ -1,0 +1,35 @@
+{
+  "key": "api-product-list-contract",
+  "qaseId": null,
+  "title": "Product list returns a non-empty catalog that matches the contract",
+  "suite": "API / Catalog",
+  "layer": "api",
+  "priority": "high",
+  "severity": "blocker",
+  "tags": [
+    "smoke",
+    "regression",
+    "api"
+  ],
+  "objective": "The catalog endpoint is the backbone of the storefront; its contract must stay stable.",
+  "preconditions": "None",
+  "steps": [
+    {
+      "action": "Request the full product list",
+      "data": "GET /api/productsList",
+      "expectedResult": "HTTP 200 and responseCode 200"
+    },
+    {
+      "action": "Validate the body against the product list JSON schema",
+      "expectedResult": "Body matches schema products-list.schema.json"
+    },
+    {
+      "action": "Check catalog content",
+      "expectedResult": "At least one product; ids are unique; every product has a name and a price in the format 'Rs. <amount>' greater than 0"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.api.ProductsApiTest#productListMatchesContract"
+  }
+}

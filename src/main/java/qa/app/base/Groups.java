@@ -1,4 +1,4 @@
-package qa.tests.base;
+package qa.app.base;
 
 /** TestNG group names. Constants prevent typos that would silently exclude tests from a suite. */
 public final class Groups {

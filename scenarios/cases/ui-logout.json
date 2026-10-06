@@ -1,0 +1,29 @@
+{
+  "key": "ui-logout",
+  "qaseId": null,
+  "title": "Logout ends the session and returns to the login page",
+  "suite": "UI / Authentication",
+  "layer": "e2e",
+  "priority": "medium",
+  "severity": "major",
+  "tags": [
+    "regression",
+    "ui"
+  ],
+  "objective": "Signing out ends the customer session.",
+  "preconditions": "A logged-in customer (account created via API)",
+  "steps": [
+    {
+      "action": "Click Logout in the header",
+      "expectedResult": "User lands on /login"
+    },
+    {
+      "action": "Check the header",
+      "expectedResult": "'Signup / Login' is visible and 'Logged in as' is not"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.AuthUiTest#logoutReturnsToLoginPage"
+  }
+}

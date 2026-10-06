@@ -1,0 +1,29 @@
+{
+  "key": "ui-cart-remove-last-product",
+  "qaseId": null,
+  "title": "Removing the only product leaves the cart empty",
+  "suite": "UI / Cart",
+  "layer": "e2e",
+  "priority": "medium",
+  "severity": "normal",
+  "tags": [
+    "regression",
+    "ui"
+  ],
+  "objective": "A product can be removed and the empty-cart state is shown.",
+  "preconditions": "One product in the cart",
+  "steps": [
+    {
+      "action": "Remove the product from the cart",
+      "expectedResult": "Row disappears"
+    },
+    {
+      "action": "Check the cart",
+      "expectedResult": "Empty-cart message is visible"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.CartUiTest#removingLastProductEmptiesCart"
+  }
+}

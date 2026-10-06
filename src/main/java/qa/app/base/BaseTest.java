@@ -1,4 +1,4 @@
-package qa.tests.base;
+package qa.app.base;
 
 import org.testng.annotations.AfterMethod;
 

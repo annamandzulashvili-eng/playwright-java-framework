@@ -3,6 +3,8 @@ package qa.app.ui.pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
+import qa.core.browser.Navigation;
+
 import qa.app.ui.components.CartModal;
 
 /** "/product_details/{id}". */
@@ -13,7 +15,7 @@ public class ProductDetailsPage extends BasePage {
     }
 
     public ProductDetailsPage open(int productId) {
-        page.navigate("/product_details/" + productId);
+        Navigation.open(page, "/product_details/" + productId);
         return this;
     }
 

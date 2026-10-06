@@ -65,6 +65,7 @@ public final class ConfigLoader {
                 r.integer("api.timeout.ms", 1_000, 120_000),
                 r.integer("threads", 0, 32),
                 r.integer("retry.max", 0, 3),
+                r.integer("overload.retries", 0, 5),
                 Path.of(r.string("artifacts.dir")));
 
         r.throwIfInvalid();

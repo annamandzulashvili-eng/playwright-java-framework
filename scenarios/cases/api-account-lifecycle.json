@@ -1,0 +1,46 @@
+{
+  "key": "api-account-lifecycle",
+  "qaseId": null,
+  "title": "Account lifecycle: create, verify login, read details, delete",
+  "suite": "API / User accounts",
+  "layer": "api",
+  "priority": "high",
+  "severity": "critical",
+  "tags": [
+    "smoke",
+    "regression",
+    "api"
+  ],
+  "objective": "A customer account can be created, used and removed through the API with data persisted exactly as submitted.",
+  "preconditions": "A unique generated customer that does not exist yet",
+  "steps": [
+    {
+      "action": "Create the account",
+      "data": "POST /api/createAccount with all profile fields",
+      "expectedResult": "responseCode 201, message 'User created!'"
+    },
+    {
+      "action": "Verify the credentials",
+      "data": "POST /api/verifyLogin",
+      "expectedResult": "responseCode 200, message 'User exists!'"
+    },
+    {
+      "action": "Read the user details by e-mail",
+      "data": "GET /api/getUserDetailByEmail",
+      "expectedResult": "E-mail, name, first/last name, city and country equal the submitted values"
+    },
+    {
+      "action": "Delete the account",
+      "data": "DELETE /api/deleteAccount",
+      "expectedResult": "responseCode 200, message 'Account deleted!'"
+    },
+    {
+      "action": "Verify the credentials again",
+      "expectedResult": "responseCode 404, message 'User not found!'"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.api.UserAccountApiTest#accountLifecycle"
+  }
+}

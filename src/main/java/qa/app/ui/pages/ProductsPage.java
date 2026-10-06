@@ -5,6 +5,8 @@ import java.util.List;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
+import qa.core.browser.Navigation;
+
 import qa.app.ui.components.CartModal;
 
 /** "/products" — catalog grid and search. */
@@ -15,7 +17,7 @@ public class ProductsPage extends BasePage {
     }
 
     public ProductsPage open() {
-        page.navigate("/products");
+        Navigation.open(page, "/products");
         return this;
     }
 

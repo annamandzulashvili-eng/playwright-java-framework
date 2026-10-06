@@ -21,7 +21,8 @@ import qa.core.browser.BrowserManager;
 import qa.core.config.FrameworkConfig;
 
 /**
- * Suite-level wiring, registered in every suite XML:
+ * Suite-level wiring, registered through META-INF/services/org.testng.ITestNGListener
+ * so it is active for suite XMLs and for single-test runs (-Dtest=Class#method):
  * <ul>
  *   <li>validates configuration before any test starts (fail fast, one clear error)</li>
  *   <li>applies {@code threads} from config over the XML thread-count when set</li>

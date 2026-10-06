@@ -3,6 +3,8 @@ package qa.app.ui.pages;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
+import qa.core.browser.Navigation;
+
 /** "/login" — holds both the login form and the new-user sign-up form. */
 public class LoginPage extends BasePage {
 
@@ -11,7 +13,7 @@ public class LoginPage extends BasePage {
     }
 
     public LoginPage open() {
-        page.navigate("/login");
+        Navigation.open(page, "/login");
         return this;
     }
 

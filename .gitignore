@@ -12,3 +12,6 @@ allure-report/
 # Local overrides and secrets — never commit
 .env
 *.local.properties
+
+# Claude Code personal overrides
+.claude/settings.local.json

@@ -1,4 +1,4 @@
-package qa.tests.base;
+package qa.app.base;
 
 import java.lang.reflect.Method;
 

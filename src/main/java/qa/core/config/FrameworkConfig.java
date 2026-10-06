@@ -30,6 +30,7 @@ public record FrameworkConfig(
         int apiTimeoutMs,
         int threads,
         int retryMax,
+        int overloadRetries,
         Path artifactsDir) {
 
     public static FrameworkConfig get() {
@@ -48,6 +49,7 @@ public record FrameworkConfig(
         m.put("Trace", trace.name().toLowerCase());
         m.put("Video", video.name().toLowerCase());
         m.put("Retry max", String.valueOf(retryMax));
+        m.put("Overload retries", String.valueOf(overloadRetries));
         m.put("Java", System.getProperty("java.version"));
         m.put("OS", System.getProperty("os.name"));
         return m;

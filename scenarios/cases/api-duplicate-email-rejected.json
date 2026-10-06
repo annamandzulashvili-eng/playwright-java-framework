@@ -1,0 +1,26 @@
+{
+  "key": "api-duplicate-email-rejected",
+  "qaseId": null,
+  "title": "Creating an account with an existing e-mail is rejected",
+  "suite": "API / User accounts",
+  "layer": "api",
+  "priority": "medium",
+  "severity": "major",
+  "tags": [
+    "regression",
+    "api"
+  ],
+  "objective": "E-mail addresses are unique across accounts.",
+  "preconditions": "An account created via API (deleted after the test)",
+  "steps": [
+    {
+      "action": "Create a second account with the same e-mail",
+      "data": "POST /api/createAccount",
+      "expectedResult": "responseCode 400, message 'Email already exists!'"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.api.UserAccountApiTest#duplicateEmailIsRejected"
+  }
+}

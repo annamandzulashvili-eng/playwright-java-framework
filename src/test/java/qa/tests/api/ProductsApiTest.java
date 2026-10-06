@@ -18,9 +18,9 @@ import org.testng.annotations.Test;
 import qa.app.api.models.ApiMessage;
 import qa.app.api.models.Product;
 import qa.app.api.models.ProductsResponse;
+import qa.app.base.BaseTest;
+import qa.app.base.Groups;
 import qa.core.api.ApiResult;
-import qa.tests.base.BaseTest;
-import qa.tests.base.Groups;
 
 @Epic("Storefront API")
 @Feature("Catalog")

@@ -1,0 +1,25 @@
+{
+  "key": "ui-signup-existing-email",
+  "qaseId": null,
+  "title": "Sign-up with an already registered e-mail is rejected",
+  "suite": "UI / Authentication",
+  "layer": "e2e",
+  "priority": "medium",
+  "severity": "major",
+  "tags": [
+    "regression",
+    "ui"
+  ],
+  "objective": "The sign-up form prevents duplicate accounts.",
+  "preconditions": "An account created via API (deleted after the test)",
+  "steps": [
+    {
+      "action": "Start sign-up with a new name and the existing e-mail",
+      "expectedResult": "Error 'Email Address already exist!' is shown"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.ui.AuthUiTest#signupWithExistingEmailShowsError"
+  }
+}

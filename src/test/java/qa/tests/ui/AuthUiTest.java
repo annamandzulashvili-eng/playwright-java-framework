@@ -12,13 +12,13 @@ import io.qameta.allure.SeverityLevel;
 
 import org.testng.annotations.Test;
 
+import qa.app.base.BaseUiTest;
+import qa.app.base.Groups;
 import qa.app.data.UserAccount;
 import qa.app.data.UserFactory;
 import qa.app.ui.pages.AccountStatusPage;
 import qa.app.ui.pages.HomePage;
 import qa.app.ui.pages.LoginPage;
-import qa.tests.base.BaseUiTest;
-import qa.tests.base.Groups;
 
 @Epic("Storefront UI")
 @Feature("Authentication")

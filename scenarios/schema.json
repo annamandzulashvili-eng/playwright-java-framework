@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "scenarios/schema.json",
+  "title": "Test scenario",
+  "description": "Git snapshot of one approved (Status Actual) Qase case, implemented by exactly one @Test method.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["key", "title", "suite", "layer", "priority", "severity", "tags", "objective", "steps", "automation"],
+  "properties": {
+    "key": {
+      "description": "Stable id, equals the file name without .json",
+      "type": "string",
+      "pattern": "^[a-z0-9]+(-[a-z0-9]+)*$"
+    },
+    "qaseId": {
+      "description": "Qase case id once uploaded; null before",
+      "type": ["integer", "null"],
+      "minimum": 1
+    },
+    "title": { "type": "string", "minLength": 5, "maxLength": 255 },
+    "suite": {
+      "description": "Qase suite path, segments separated by ' / '",
+      "type": "string",
+      "pattern": "^(API|UI)( / [A-Z][A-Za-z ]+)+$"
+    },
+    "layer": { "enum": ["api", "e2e"] },
+    "priority": { "enum": ["high", "medium", "low"] },
+    "severity": { "enum": ["blocker", "critical", "major", "normal", "minor", "trivial"] },
+    "tags": {
+      "type": "array",
+      "uniqueItems": true,
+      "minItems": 1,
+      "items": { "enum": ["smoke", "regression", "api", "ui", "ai_generated", "ai_automated", "ai_refactored"] }
+    },
+    "objective": { "type": "string", "minLength": 10 },
+    "preconditions": { "type": "string" },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["action", "expectedResult"],
+        "properties": {
+          "action": {
+            "description": "Business-level action, not a click list",
+            "type": "string",
+            "minLength": 5
+          },
+          "data": { "type": "string" },
+          "expectedResult": { "type": "string", "minLength": 5 }
+        }
+      }
+    },
+    "automation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status"],
+      "properties": {
+        "status": { "enum": ["automated", "to-be-automated", "manual"] },
+        "test": {
+          "description": "Fully qualified test method implementing this case",
+          "type": "string",
+          "pattern": "^qa\\.tests\\.[a-z.]+\\.[A-Z][A-Za-z0-9]*#[a-z][A-Za-z0-9]*$"
+        }
+      },
+      "if": { "properties": { "status": { "const": "automated" } } },
+      "then": { "required": ["status", "test"] }
+    }
+  }
+}

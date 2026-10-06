@@ -1,0 +1,30 @@
+{
+  "key": "api-search-related-products",
+  "qaseId": null,
+  "title": "Search returns only products related to the term",
+  "suite": "API / Catalog",
+  "layer": "api",
+  "priority": "high",
+  "severity": "critical",
+  "tags": [
+    "regression",
+    "api"
+  ],
+  "objective": "Search results are relevant: every product matches the term by name, category or audience.",
+  "preconditions": "None",
+  "steps": [
+    {
+      "action": "Search products by term",
+      "data": "POST /api/searchProduct, search_product = top | jean | dress | tshirt",
+      "expectedResult": "responseCode 200 and a non-empty product list"
+    },
+    {
+      "action": "Check relevance of every result",
+      "expectedResult": "Each product's name, category or audience contains the term (case-insensitive, hyphens ignored)"
+    }
+  ],
+  "automation": {
+    "status": "automated",
+    "test": "qa.tests.api.ProductsApiTest#searchReturnsOnlyRelatedProducts"
+  }
+}

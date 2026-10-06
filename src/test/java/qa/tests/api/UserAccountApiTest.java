@@ -12,10 +12,10 @@ import org.testng.annotations.Test;
 
 import qa.app.api.models.ApiMessage;
 import qa.app.api.models.UserDetailResponse.UserDetail;
+import qa.app.base.BaseTest;
+import qa.app.base.Groups;
 import qa.app.data.UserAccount;
 import qa.app.data.UserFactory;
-import qa.tests.base.BaseTest;
-import qa.tests.base.Groups;
 
 @Epic("Storefront API")
 @Feature("User accounts")

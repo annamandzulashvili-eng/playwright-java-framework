@@ -4,9 +4,7 @@
   Run: mvn verify -Dsuite=ui   (thread count can be overridden with -Dthreads=N)
 -->
 <suite name="UI" parallel="methods" thread-count="4" data-provider-thread-count="2">
-    <listeners>
-        <listener class-name="qa.core.testng.FrameworkSuiteListener"/>
-    </listeners>
+    <!-- FrameworkSuiteListener is registered via META-INF/services, so it also runs with -Dtest=... -->
     <test name="UI">
         <groups>
             <run>
