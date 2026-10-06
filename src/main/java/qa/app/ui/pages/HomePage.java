@@ -2,6 +2,8 @@ package qa.app.ui.pages;
 
 import com.microsoft.playwright.Page;
 
+import qa.core.browser.Navigation;
+
 public class HomePage extends BasePage {
 
     public HomePage(Page page) {
@@ -9,7 +11,7 @@ public class HomePage extends BasePage {
     }
 
     public HomePage open() {
-        page.navigate("/");
+        Navigation.open(page, "/");
         return this;
     }
 }

@@ -6,6 +6,8 @@ import java.util.List;
 import com.microsoft.playwright.Locator;
 import com.microsoft.playwright.Page;
 
+import qa.core.browser.Navigation;
+
 import qa.app.data.Money;
 
 /** "/view_cart". */
@@ -16,7 +18,7 @@ public class CartPage extends BasePage {
     }
 
     public CartPage open() {
-        page.navigate("/view_cart");
+        Navigation.open(page, "/view_cart");
         return this;
     }
 

@@ -28,6 +28,9 @@ core (src/main/java/qa/core)        → config, browser lifecycle, API base, rep
 ## Rules
 - Locators live only in page/component classes. Prefer `getByTestId` (data-qa), then role/label/text, then stable CSS. No XPath unless nothing else exists. Never invent a selector — inspect the page first.
 - No `Thread.sleep` / fixed waits. Synchronize on state: `locator.waitFor`, `page.waitForURL`, web-first `assertThat(locator)`.
+  The only sleep is the backoff in `qa.core.http.Overload`, which re-sends a call when the site is overloaded.
+- Navigate with `Navigation.open(page, path)` and send API calls through `toResult(() -> request()..., Type.class)`,
+  so overload responses (502/503/504, "heavy load" page) are retried transparently. Never retry on assertion failures.
 - Assertions only in tests. UI: Playwright `assertThat`. Data: AssertJ `then(...)`.
 - Every test is independent and parallel-safe: create its own data (`UserFactory`, `createUserViaApi()`), register undo with `Cleanup.register(...)` or `deleteAfterTest(user)`.
 - Prefer API-assisted setup; drive the UI only for the behaviour under test.

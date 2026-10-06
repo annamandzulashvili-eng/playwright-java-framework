@@ -19,7 +19,7 @@ public class UserApiClient extends BaseApiClient {
 
     @Step("API: create account {user.email}")
     public ApiResult<ApiMessage> create(UserAccount user) {
-        return toResult(request()
+        return toResult(() -> request()
                 .contentType(ContentType.URLENC)
                 .formParams(user.toCreateAccountForm())
                 .post("/createAccount"), ApiMessage.class);
@@ -28,7 +28,7 @@ public class UserApiClient extends BaseApiClient {
     @Step("API: delete account {email}")
     public ApiResult<ApiMessage> delete(String email,
                                         @Param(name = "password", mode = Parameter.Mode.MASKED) String password) {
-        return toResult(request()
+        return toResult(() -> request()
                 .contentType(ContentType.URLENC)
                 .formParam("email", email)
                 .formParam("password", password)
@@ -38,7 +38,7 @@ public class UserApiClient extends BaseApiClient {
     @Step("API: verify login for {email}")
     public ApiResult<ApiMessage> verifyLogin(String email,
                                              @Param(name = "password", mode = Parameter.Mode.MASKED) String password) {
-        return toResult(request()
+        return toResult(() -> request()
                 .contentType(ContentType.URLENC)
                 .formParam("email", email)
                 .formParam("password", password)
@@ -48,7 +48,7 @@ public class UserApiClient extends BaseApiClient {
     @Step("API: verify login without e-mail")
     public ApiResult<ApiMessage> verifyLoginWithoutEmail(
             @Param(name = "password", mode = Parameter.Mode.MASKED) String password) {
-        return toResult(request()
+        return toResult(() -> request()
                 .contentType(ContentType.URLENC)
                 .formParam("password", password)
                 .post("/verifyLogin"), ApiMessage.class);
@@ -56,7 +56,7 @@ public class UserApiClient extends BaseApiClient {
 
     @Step("API: get user details for {email}")
     public ApiResult<UserDetailResponse> getByEmail(String email) {
-        return toResult(request()
+        return toResult(() -> request()
                 .queryParam("email", email)
                 .get("/getUserDetailByEmail"), UserDetailResponse.class);
     }

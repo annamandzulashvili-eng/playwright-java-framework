@@ -13,17 +13,17 @@ public class ProductsApiClient extends BaseApiClient {
 
     @Step("API: get all products")
     public ApiResult<ProductsResponse> getAllProducts() {
-        return toResult(request().get("/productsList"), ProductsResponse.class);
+        return toResult(() -> request().get("/productsList"), ProductsResponse.class);
     }
 
     @Step("API: POST to products list (unsupported method)")
     public ApiResult<ApiMessage> postToProductsList() {
-        return toResult(request().post("/productsList"), ApiMessage.class);
+        return toResult(() -> request().post("/productsList"), ApiMessage.class);
     }
 
     @Step("API: search products by '{term}'")
     public ApiResult<ProductsResponse> search(String term) {
-        return toResult(request()
+        return toResult(() -> request()
                 .contentType(ContentType.URLENC)
                 .formParam("search_product", term)
                 .post("/searchProduct"), ProductsResponse.class);
@@ -31,6 +31,6 @@ public class ProductsApiClient extends BaseApiClient {
 
     @Step("API: search products without the search parameter")
     public ApiResult<ApiMessage> searchWithoutTerm() {
-        return toResult(request().post("/searchProduct"), ApiMessage.class);
+        return toResult(() -> request().post("/searchProduct"), ApiMessage.class);
     }
 }

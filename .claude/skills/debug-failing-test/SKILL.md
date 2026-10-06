@@ -32,7 +32,7 @@ Classify:
 |---|---|---|
 | Test bug | locator changed, missing wait, wrong expectation vs. scenario | fix in the right layer (locator → page via [stable-locators](../stable-locators/SKILL.md), sync → step, expectation → test) |
 | Product bug | app behaviour contradicts the scenario and docs | do not change the test; draft a defect |
-| Environment | timeout / 5xx / DNS / site down; passes on rerun | report; consider opt-in retry only for idempotent tests |
+| Environment | `ServiceOverloadedException`, timeout / 5xx / DNS / site down; passes on rerun | report; consider opt-in retry only for idempotent tests |
 
 ## 4. Fix (test bugs only)
 - Minimal diff in the correct layer. Never "fix" by adding sleeps, widening assertions, or catching exceptions.

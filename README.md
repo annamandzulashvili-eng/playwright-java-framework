@@ -97,6 +97,10 @@ failures also get a full-page screenshot and URL. Everything is attached to Allu
 **Emulation is not device coverage.** Device profiles (`iphone_14`, `pixel_7`, …) emulate viewport, touch
 and user agent for responsive checks. Native mobile testing lives in a separate Appium framework.
 
+**Overload-aware, not retry-happy.** When the public demo site answers 502/503/504 or its "heavy load" page,
+the request or navigation is re-sent with a short backoff (`overload.retries`, default 2). Assertion failures are never
+retried, and a site that stays down fails with `ServiceOverloadedException`, grouped in Allure as an infrastructure issue.
+
 **Third-party blocking.** Ad, analytics and consent scripts are aborted at network level, removing the most
 common source of flakiness on public demo sites.
 
