@@ -1,6 +1,6 @@
 {
   "key": "api-duplicate-email-rejected",
-  "qaseId": null,
+  "qaseId": 2,
   "title": "Creating an account with an existing e-mail is rejected",
   "suite": "API / User accounts",
   "layer": "api",

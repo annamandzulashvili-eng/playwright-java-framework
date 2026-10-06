@@ -10,6 +10,7 @@ import io.qameta.allure.Epic;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Severity;
 import io.qameta.allure.SeverityLevel;
+import io.qase.commons.annotation.QaseId;
 
 import org.hamcrest.MatcherAssert;
 import org.testng.annotations.DataProvider;
@@ -29,6 +30,7 @@ public class ProductsApiTest extends BaseTest {
     @Test(groups = {Groups.API, Groups.SMOKE, Groups.REGRESSION},
             description = "Product list returns a non-empty catalog that matches the contract")
     @Severity(SeverityLevel.BLOCKER)
+    @QaseId(3)
     public void productListMatchesContract() {
         ApiResult<ProductsResponse> result = productsApi.getAllProducts();
 
@@ -48,6 +50,7 @@ public class ProductsApiTest extends BaseTest {
 
     @Test(groups = {Groups.API, Groups.REGRESSION},
             description = "POST to the product list is rejected as an unsupported method")
+    @QaseId(4)
     public void postToProductListIsNotSupported() {
         ApiMessage body = productsApi.postToProductsList().body();
 
@@ -62,6 +65,7 @@ public class ProductsApiTest extends BaseTest {
 
     @Test(dataProvider = "searchTerms", groups = {Groups.API, Groups.REGRESSION},
             description = "Search returns only products related to the term")
+    @QaseId(5)
     public void searchReturnsOnlyRelatedProducts(String term) {
         ApiResult<ProductsResponse> result = productsApi.search(term);
 
@@ -74,6 +78,7 @@ public class ProductsApiTest extends BaseTest {
 
     @Test(groups = {Groups.API, Groups.REGRESSION},
             description = "Search without the search_product parameter is a bad request")
+    @QaseId(6)
     public void searchWithoutTermIsBadRequest() {
         ApiMessage body = productsApi.searchWithoutTerm().body();
 

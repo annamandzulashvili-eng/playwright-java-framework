@@ -1,6 +1,6 @@
 {
   "key": "ui-product-details-match-api",
-  "qaseId": null,
+  "qaseId": 13,
   "title": "Product details page shows the same name and price as the catalog API",
   "suite": "UI / Catalog",
   "layer": "e2e",

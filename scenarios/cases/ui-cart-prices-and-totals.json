@@ -1,6 +1,6 @@
 {
   "key": "ui-cart-prices-and-totals",
-  "qaseId": null,
+  "qaseId": 9,
   "title": "Products added from the catalog appear in the cart with correct prices and totals",
   "suite": "UI / Cart",
   "layer": "e2e",

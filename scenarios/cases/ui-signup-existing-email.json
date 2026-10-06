@@ -1,6 +1,6 @@
 {
   "key": "ui-signup-existing-email",
-  "qaseId": null,
+  "qaseId": 16,
   "title": "Sign-up with an already registered e-mail is rejected",
   "suite": "UI / Authentication",
   "layer": "e2e",

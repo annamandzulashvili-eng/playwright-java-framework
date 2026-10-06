@@ -1,6 +1,6 @@
 {
   "key": "api-product-list-post-not-supported",
-  "qaseId": null,
+  "qaseId": 4,
   "title": "POST to the product list is rejected as an unsupported method",
   "suite": "API / Catalog",
   "layer": "api",

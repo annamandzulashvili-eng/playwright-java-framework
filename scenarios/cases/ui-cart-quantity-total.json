@@ -1,6 +1,6 @@
 {
   "key": "ui-cart-quantity-total",
-  "qaseId": null,
+  "qaseId": 10,
   "title": "Quantity chosen on the details page is reflected in the cart total",
   "suite": "UI / Cart",
   "layer": "e2e",

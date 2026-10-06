@@ -1,6 +1,6 @@
 {
   "key": "ui-cart-remove-last-product",
-  "qaseId": null,
+  "qaseId": 11,
   "title": "Removing the only product leaves the cart empty",
   "suite": "UI / Cart",
   "layer": "e2e",

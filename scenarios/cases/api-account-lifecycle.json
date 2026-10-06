@@ -1,6 +1,6 @@
 {
   "key": "api-account-lifecycle",
-  "qaseId": null,
+  "qaseId": 1,
   "title": "Account lifecycle: create, verify login, read details, delete",
   "suite": "API / User accounts",
   "layer": "api",

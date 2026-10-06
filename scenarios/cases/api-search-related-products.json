@@ -1,6 +1,6 @@
 {
   "key": "api-search-related-products",
-  "qaseId": null,
+  "qaseId": 5,
   "title": "Search returns only products related to the term",
   "suite": "API / Catalog",
   "layer": "api",

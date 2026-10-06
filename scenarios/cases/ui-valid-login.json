@@ -1,6 +1,6 @@
 {
   "key": "ui-valid-login",
-  "qaseId": null,
+  "qaseId": 17,
   "title": "Registered user can log in and sees their name in the header",
   "suite": "UI / Authentication",
   "layer": "e2e",
