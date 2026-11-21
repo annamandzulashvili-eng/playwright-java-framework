@@ -12,8 +12,9 @@ import qa.core.config.FrameworkConfig;
 /**
  * Retries a call while the system under test reports that it is overloaded.
  * <p>
- * Public demo sites answer bursts of traffic with 502/503/504 or a "heavy load" page instead of real content.
- * Such a response means the request was not processed, so repeating it is safe for any HTTP method.
+ * Public demo sites answer bursts of traffic with 502/503/504, an empty body or a "heavy load" page
+ * instead of real content. Such a response means the request was not processed, so repeating it is
+ * safe for any HTTP method.
  * This is <b>not</b> a test retry: assertions never trigger it, and when the service stays overloaded
  * the call fails with {@link ServiceOverloadedException}, which Allure groups under infrastructure problems.
  * <p>
@@ -29,9 +30,17 @@ public final class Overload {
     private Overload() {
     }
 
+    /**
+     * A response signals overload when the status is 502/503/504, the body is the site's
+     * "heavy load" page, or the body is empty. An empty body means the server dropped the
+     * request without producing content (observed on automationexercise.com during brief
+     * outages), so re-sending it is safe. Assumes the API never answers 204 No Content;
+     * page content from a completed navigation is never blank, so navigations are unaffected.
+     */
     public static boolean isOverloaded(int status, String body) {
         return status == 502 || status == 503 || status == 504
-                || (body != null && body.contains(HEAVY_LOAD_MARKER));
+                || body == null || body.isBlank()
+                || body.contains(HEAVY_LOAD_MARKER);
     }
 
     /**
