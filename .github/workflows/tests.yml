@@ -106,7 +106,10 @@ jobs:
       QASE_TESTOPS_PROJECT: ${{ vars.QASE_PROJECT }}
       QASE_TESTOPS_RUN_COMPLETE: "false"
       QASE_FALLBACK: "off"
-    runs-on: ubuntu-latest
+    # Pinned, not ubuntu-latest: GitHub moved ubuntu-latest to 26.04, and Playwright 1.54
+    # cannot install browser OS dependencies there ("Playwright does not support ... on
+    # ubuntu26.04-x64"). Unpin once Playwright is upgraded to a version that supports it.
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     strategy:
       fail-fast: false
